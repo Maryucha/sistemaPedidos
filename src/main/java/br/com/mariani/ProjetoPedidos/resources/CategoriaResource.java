@@ -1,5 +1,8 @@
 package br.com.mariani.ProjetoPedidos.resources;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,9 +14,15 @@ import br.com.mariani.ProjetoPedidos.domain.Categoria;
 public class CategoriaResource {
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String listar() {
+	public List<Categoria>  listar() {
 		Categoria categoria1 = new Categoria(1,"informática");
-		return "Rest Está funcionando";
+		Categoria categoria2 = new Categoria(2,"escritório");
+		
+		List<Categoria> listaCategoria = new ArrayList<>();
+		listaCategoria.add(categoria1);
+		listaCategoria.add(categoria2);
+		
+		return listaCategoria;
 	}
 
 }
